@@ -1,0 +1,244 @@
+body {
+  background-color: #afb0b5;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: rgb(0, 0, 0);
+}
+
+
+header {
+  background: rgb(37, 99, 235);
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  padding : 20px;
+}
+/* ─ Navigation ─ */
+nav {
+  background: #d5d5d5;
+  padding: 15px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 15px;
+}
+
+nav a:hover {
+  color: #000000;
+}
+
+/* ─ Hero Section ─ */
+.hero {
+  text-align: center;
+  padding: 60px;
+}
+.hero h2 {
+  color: #2563eb;
+  font-size: 40px;
+}
+/* ── Normal CSS (desktop) ── */
+.hero h2
+{font-size:42px; }
+/* ── Mobile override ── */
+@media(max-width:768px)
+{
+.hero h2
+{font-size:28px; }
+}
+.hero p {
+  margin-top: 20px;
+  font-size: 18px;
+}
+.hero-image
+{width:100%;
+ height:auto;
+ display:block;
+}
+
+
+/* ─ CTA Button ─ */
+.btn {
+  background: #ffffff;
+  color: rgb(0, 79, 214);
+  border: none;
+  padding: 12px 25px;
+  margin-top: 20px;
+  cursor: pointer;
+  width:auto;
+  border-radius: 20px;
+}
+.btn:hover {
+  background: #e9f0ff;
+}
+
+/* ─ About ─ */
+.about {
+  background: rgb(56, 95, 95);
+  margin: 30px;
+  padding: 30px;
+}
+
+/* ─ Course Container ─ */
+.course-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.course-container :hover {
+  transform: scale (1.1);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+/* ─ Card ─ */
+.course-container
+{
+display
+:
+flex
+;
+justify-content
+:
+center
+;
+gap
+:
+25px
+;
+flex-wrap
+:
+wrap
+;
+}
+.card
+{
+width
+:
+260px
+;
+padding
+:
+20px
+;
+background
+:
+white
+;
+border-radius
+:
+10px
+;
+box-shadow
+:
+0 0 10px rgba(0,0,0,.2)
+;
+transition
+:
+.3s
+;
+}
+.card:hover
+{
+transform
+:
+translateY
+(
+-10px
+);
+}
+/* ─ Footer ─ */
+footer {
+  background: #1d3762;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* ── Box Model Demo ── */
+.box-model-demo {
+  padding: 40px;
+}
+.demo-box {
+  background: rgb(37, 99, 235);
+  color: white;
+  width: 300px;
+  padding: 30px;
+  border: 5px solid rgb(33, 80, 172);
+  margin: 40px;
+  border-radius: 10px;
+}
+
+.student-card {
+  background: #ffffff;
+  border: 2px solid #888686;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 16px;
+  width: 200px;
+  text-align: center;
+}
+
+.testimonials{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.testimonials:hover {
+  color: #000000;
+}
+
+.features {
+padding: 60px;
+text-align: center;
+background: #eef4ff;
+}
+.feature-container {
+display: flex;
+justify-content: center;
+gap: 30px;
+flex-wrap: wrap;
+border-radius: 16px;
+padding: 30px;
+}
+.feature {
+width: 300px;
+padding: 25px;
+background: white;
+border-radius: 10px;
+box-shadow: 0 0 15px rgba(0,0,0,.15);
+transition: .3s;
+}
+/* Hover — zoom effect */
+.feature:hover {
+transform: scale(1.05);
+}
+.cta {
+background: #215cd1;
+color: white;
+padding: 60px;
+text-align: center;
+}
+.cta button {
+margin-top: 20px;
+}
+/* ═══════════════════════════════════ */
+/* ── MOBILE STYLES (Day 5 Hour 2) ── */
+/* ═══════════════════════════════════ */
+@media(max-width:768px) {
+nav { flex-direction: column; }
+.hero { padding: 30px; }
+.hero h2{ font-size: 26px; }
+.hero p { font-size: 16px; }
+.btn { width: 100%; }
+.course-card{ width: 100%; }
+.feature{ width: 100%; }
+.about { margin: 15px; padding: 20px; }
+footer { font-size: 14px; }
+}
