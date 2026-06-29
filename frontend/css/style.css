@@ -96,60 +96,22 @@ nav a:hover {
 }
 
 /* ─ Card ─ */
-.course-container
-{
-display
-:
-flex
-;
-justify-content
-:
-center
-;
-gap
-:
-25px
-;
-flex-wrap
-:
-wrap
-;
+.course-container{
+  display:flex;
+  justify-content:center;
+  gap  :25px;
+  flex-wrap:wrap;
 }
-.card
-{
-width
-:
-260px
-;
-padding
-:
-20px
-;
-background
-:
-white
-;
-border-radius
-:
-10px
-;
-box-shadow
-:
-0 0 10px rgba(0,0,0,.2)
-;
-transition
-:
-.3s
-;
+.card{
+  width:260px;
+  padding :20px;
+  background:white;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,.2);
+  transition:.3s;
 }
-.card:hover
-{
-transform
-:
-translateY
-(
--10px
-);
+.card:hover{
+   transform:translateY(-10px);
 }
 /* ─ Footer ─ */
 footer {
@@ -241,4 +203,15 @@ nav { flex-direction: column; }
 .feature{ width: 100%; }
 .about { margin: 15px; padding: 20px; }
 footer { font-size: 14px; }
+.profile-card {
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  }
+}
+.profile-card {
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: 16px;
 }
