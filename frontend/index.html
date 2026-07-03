@@ -1,223 +1,439 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SkillHub LMS</title>
 
-  <link rel="stylesheet" href="./css/style.css" />
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- My own simple styles -->
+  <style>
+   body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #1a1b26;
+      color: #cdd3e8;
+    }
+
+    /* ---- Navbar ---- */
+    .navbar-brand {
+      font-weight: bold;
+      color: #8bd5a4 !important;
+    }
+
+    /* ---- Hero section ---- */
+    .hero {
+      background-color: #16171f;
+      color: #cdd3e8;
+      padding: 60px 0;
+      border-bottom: 1px solid #2b2d3d;
+    }
+    .hero h1 {
+      font-weight: bold;
+      color: #f2f3f9;
+    }
+    .hero .lead {
+      color: #8b8fa8;
+    }
+    .hero-emoji {
+      font-size: 120px;
+      text-align: center;
+    }
+
+    /* ---- Section titles ---- */
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: bold;
+      color: #f2f3f9;
+    }
+
+    /* ---- Course cards ---- */
+    .course-card {
+      background-color: #16171f;
+      border: 1px solid #2b2d3d;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      height: 100%;
+      transition: 0.2s;
+    }
+    .course-card h3,
+    .course-card p {
+      color: #cdd3e8;
+    }
+    .course-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transform: translateY(-4px);
+      border-color: #7dc4e4;
+    }
+    .course-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    /* ---- Testimonial cards ---- */
+    .testimonial-card {
+      background-color: #16171f;
+      border: 1px solid #2b2d3d;
+      border-radius: 8px;
+      padding: 20px;
+      height: 100%;
+    }
+    .testimonial-card h5 {
+      color: #f2f3f9;
+    }
+    .avatar-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      color: #16171f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 20px;
+      margin: 0 auto 10px auto;
+    }
+
+    /* ---- Why choose us ---- */
+    .feature-box {
+      text-align: center;
+      padding: 20px;
+    }
+    .feature-box h5 {
+      color: #f2f3f9;
+    }
+    .feature-icon {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    /* ---- Trainer cards ---- */
+    .card {
+      background-color: #16171f !important;
+      border: 1px solid #2b2d3d !important;
+    }
+    .card-title {
+      color: #f2f3f9;
+    }
+    .trainer-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      color: #16171f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 24px;
+      margin: 0 auto 12px auto;
+    }
+
+    /* ---- CTA section ---- */
+    .cta {
+      background-color: #16171f;
+      color: #f2f3f9;
+      text-align: center;
+      padding: 50px 0;
+      border-top: 1px solid #2b2d3d;
+    }
+    .cta .btn-light {
+      background-color: #8bd5a4;
+      border-color: #8bd5a4;
+      color: #16171f;
+    }
+
+    /* ---- Footer ---- */
+    footer {
+      background-color: #12131a;
+      color: #8b8fa8;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    /* ---- Overrides so Bootstrap's default classes still read well on dark ---- */
+    .text-muted {
+      color: #8b8fa8 !important;
+    }
+    .text-primary {
+      color: #7dc4e4 !important;
+    }
+    .btn-outline-primary {
+      color: #7dc4e4;
+      border-color: #7dc4e4;
+    }
+    .btn-outline-primary:hover {
+      background-color: #7dc4e4;
+      color: #16171f;
+    }
+    .btn-outline-dark {
+      color: #cdd3e8;
+      border-color: #2b2d3d;
+    }
+    .btn-outline-dark:hover {
+      background-color: #cdd3e8;
+      color: #16171f;
+    }
+    .btn-outline-light {
+      border-color: #2b2d3d;
+    }
+  </style>
 </head>
 
 <body>
-  <header>
-    <h1>SkillHub LMS</h1>
-  </header>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Courses</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+
+  <!-- ===== Navbar ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">SkillHub LMS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="#trainers">Trainers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
+
+  <!-- ===== Hero section ===== -->
   <section class="hero">
-    <h2>Welcome to SkillHub LMS</h2>
-    <p>Learn Full Stack Development from scratch.</p>
-    <button class="btn">Explore Courses</button>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h1 class="display-5">Master Full Stack Development</h1>
+          <p class="lead mt-3">Learn HTML, CSS, JavaScript, React, Node &amp; MongoDB</p>
+          <div class="d-flex gap-3 mt-4">
+            <button class="btn btn-light btn-lg">Get Started</button>
+            <button class="btn btn-outline-light btn-lg">Learn More</button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80"
+               class="img-fluid rounded shadow" alt="Laptop screen showing programming code">
+        </div>
+      </div>
+    </div>
   </section>
-  <section class="about">
-    <h2>About Us</h2>
-    <p>SkillHub LMS helps students become industry-ready developers.</p>
+
+  <!-- ===== Courses section ===== -->
+  <section class="py-5" id="courses">
+    <div class="container">
+      <h2 class="section-title">Our Courses</h2>
+      <div class="row g-4">
+
+        <div class="col-md-4 col-sm-6">
+          <div class="course-card">
+            <div class="course-icon">🌐</div>
+            <h3>HTML &amp; CSS</h3>
+            <p>Build your first webpage</p>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="course-card">
+            <div class="course-icon">⚡</div>
+            <h3>JavaScript</h3>
+            <p>Make pages interactive</p>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="course-card">
+            <div class="course-icon">🎨</div>
+            <h3>Bootstrap</h3>
+            <p>CSS Framework</p>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="course-card">
+            <div class="course-icon">🍃</div>
+            <h3>MongoDB</h3>
+            <p>Database</p>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="course-card">
+            <div class="course-icon">🟢</div>
+            <h3>Node.js</h3>
+            <p>Runtime</p>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="course-card">
+            <div class="course-icon">⚛️</div>
+            <h3>React</h3>
+            <p>Build modern UIs</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
 
-  <section
-class
-="courses"
->
-<h2>
-Our Courses
-</h2>
-<!-- WRAP ALL CARDS IN THIS DIV -->
-<div
-class
-="course-container"
->
-<div
-class
-="card"
->
-<h3>
-HTML &amp; CSS
-</h3>
-<p>
-Build your first webpage
-</p>
-</div>
-<div
-class
-="card"
->
-<h3>
-JavaScript
-</h3>
-<p>
-Make pages interactive
-</p>
-</div><div
-class
-="card"
->
-<h3>
-Bootstrap
-</h3>
-<p>
-CSS Framework
-</p>
-</div><div
-class
-="card"
->
-<h3>
-MongoDB
-</h3>
-<p>
-Database
-</p>
-</div><div
-class
-="card"
->
-<h3>
-Node.js
-</h3>
-<p>
-Runtime
-</p>
-</div>
-<div
-class
-="card"
->
-<h3>
-React
-</h3>
-<p>
-Build modern UIs
-</p>
-</div>
-</div>
-<!-- end .course-container -->
-</section>
-   <h2>Testimonials</h2>
-  <section class="testimonials">
-   
-    <div class="student-card">
-      <img src="assets/WhatsApp Image 2026-06-26 at 10.11.45 AM.jpeg" alt="Student" class="hero-image">
-      <h3>
-        Rahul Sharma
-      </h3>
-      <p>
-        MERN Stack Student
-      </p>
-      <p>
-        Batch: 2026
-      </p>
-    </div>
-    <div class="student-card">
-      <img src="assets/WhatsApp Image 2026-06-26 at 10.11.45 AM.jpeg" alt="Student" class="hero-image">
-      <h3>
-        Rahul Sharma
-      </h3>
-      <p>
-        MERN Stack Student
-      </p>
-      <p>
-        Batch: 2026
-      </p>
-    </div>
+  <!-- ===== Testimonials section ===== -->
+  <section class="py-5" style="background-color:#16171f;" id="reviews">
+    <div class="container">
+      <h2 class="section-title">Testimonials</h2>
+      <div class="row g-4">
 
-    <div class="student-card">
-      <img src="assets/WhatsApp Image 2026-06-26 at 10.11.45 AM.jpeg" alt="Student" class="hero-image">
-      <h3>
-        Rahul Sharma
-      </h3>
-      <p>
-        MERN Stack Student
-      </p>
-      <p>
-        Batch: 2026
-      </p>
-    </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="testimonial-card">
+            <div class="avatar-circle" style="background-color:#8bd5a4;">RS</div>
+            <h5 class="text-center">Rahul Sharma</h5>
+            <p class="text-center text-muted mb-1">MERN Stack Student</p>
+            <p class="text-center text-muted">Batch: 2026</p>
+          </div>
+        </div>
 
-    <div class="student-card">
-      <img src="assets/WhatsApp Image 2026-06-26 at 10.11.45 AM.jpeg" alt="Student" class="hero-image">
-      <h3>
-        Rahul Sharma
-      </h3>
-      <p>
-        MERN Stack Student
-      </p>
-      <p>
-        Batch: 2026
-      </p>
-    </div>
-<div class="student-card">
-      <img src="assets/WhatsApp Image 2026-06-26 at 10.11.45 AM.jpeg" alt="Student" class="hero-image">
-      <h3>
-        Rahul Sharma
-      </h3>
-      <p>
-        MERN Stack Student
-      </p>
-      <p>
-        Batch: 2026
-      </p>
-    </div>
-<div class="student-card">
-      <img src="assets/WhatsApp Image 2026-06-26 at 10.11.45 AM.jpeg" alt="Student" class="hero-image">
-      <h3>
-        Rahul Sharma
-      </h3>
-      <p>
-        MERN Stack Student
-      </p>
-      <p>
-        Batch: 2026
-      </p>
-    </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="testimonial-card">
+            <div class="avatar-circle" style="background-color:#7dc4e4;">PV</div>
+            <h5 class="text-center">Priya Verma</h5>
+            <p class="text-center text-muted mb-1">React Student</p>
+            <p class="text-center text-muted">Batch: 2026</p>
+          </div>
+        </div>
 
+        <div class="col-md-3 col-sm-6">
+          <div class="testimonial-card">
+            <div class="avatar-circle" style="background-color:#f5c98d;">AK</div>
+            <h5 class="text-center">Aman Kulkarni</h5>
+            <p class="text-center text-muted mb-1">Node.js Student</p>
+            <p class="text-center text-muted">Batch: 2025</p>
+          </div>
+        </div>
 
+        <div class="col-md-3 col-sm-6">
+          <div class="testimonial-card">
+            <div class="avatar-circle" style="background-color:#f28fad;">SN</div>
+            <h5 class="text-center">Sneha Nair</h5>
+            <p class="text-center text-muted mb-1">Full Stack Student</p>
+            <p class="text-center text-muted">Batch: 2025</p>
+          </div>
+        </div>
 
+      </div>
+    </div>
   </section>
-  <section class="features">
-<h2>Why Choose SkillHub?</h2>
-<div class="feature-container">
-<div class="feature">
-<h3>💻 Practical Learning</h3>
-<p>Build projects every day.</p>
-</div>
-<div class="feature">
-<h3>👨‍🏫 Expert Trainers</h3>
-<p>Industry-oriented teaching.</p>
-</div>
-<div class="feature">
-<h3>🚀 Placement Support</h3>
-<p>Resume & Interview Prep.</p>
-</div>
-</div> <!-- .feature-container -->
-</section>
-<section class="cta">
-<h2>
-Ready to Become a
-Full Stack Developer?
-</h2>
-<button class="btn">
-Join Today
-</button>
-</section>
 
+  <!-- ===== Why choose us section ===== -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="section-title">Why Choose SkillHub?</h2>
+      <div class="row align-items-center g-4">
+        <div class="col-md-5">
+          <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=700&q=80"
+               class="img-fluid rounded shadow" alt="MacBook Pro with code on screen">
+        </div>
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="feature-box">
+                <div class="feature-icon">💻</div>
+                <h5>Practical Learning</h5>
+                <p>Build projects every day.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-box">
+                <div class="feature-icon">👨‍🏫</div>
+                <h5>Expert Trainers</h5>
+                <p>Industry-oriented teaching.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-box">
+                <div class="feature-icon">🚀</div>
+                <h5>Placement Support</h5>
+                <p>Resume &amp; interview prep.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Trainers section ===== -->
+  <section class="py-5" style="background-color:#16171f;" id="trainers">
+    <div class="container">
+      <h2 class="section-title">Meet Our Trainers</h2>
+      <div class="row g-4">
+
+        <div class="col-md-4">
+          <div class="card text-center shadow h-100 p-3">
+            <div class="trainer-avatar" style="background-color:#c6a0f6;">RK</div>
+            <div class="card-body">
+              <h5 class="card-title">Rahul Kumar</h5>
+              <p class="text-primary fw-bold">MERN Stack Lead</p>
+              <p class="card-text text-muted">5 years industry experience</p>
+              <div class="d-flex gap-2 justify-content-center">
+                <a href="#" class="btn btn-outline-primary btn-sm">LinkedIn</a>
+                <a href="#" class="btn btn-outline-dark btn-sm">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card text-center shadow h-100 p-3">
+            <div class="trainer-avatar" style="background-color:#7dc4e4;">MI</div>
+            <div class="card-body">
+              <h5 class="card-title">Meera Iyer</h5>
+              <p class="text-primary fw-bold">Frontend &amp; React Lead</p>
+              <p class="card-text text-muted">6 years industry experience</p>
+              <div class="d-flex gap-2 justify-content-center">
+                <a href="#" class="btn btn-outline-primary btn-sm">LinkedIn</a>
+                <a href="#" class="btn btn-outline-dark btn-sm">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card text-center shadow h-100 p-3">
+            <div class="trainer-avatar" style="background-color:#8bd5a4;">AD</div>
+            <div class="card-body">
+              <h5 class="card-title">Arjun Desai</h5>
+              <p class="text-primary fw-bold">Backend &amp; DevOps Lead</p>
+              <p class="card-text text-muted">7 years industry experience</p>
+              <div class="d-flex gap-2 justify-content-center">
+                <a href="#" class="btn btn-outline-primary btn-sm">LinkedIn</a>
+                <a href="#" class="btn btn-outline-dark btn-sm">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Call to action section ===== -->
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to Become a Full Stack Developer?</h2>
+      <button class="btn btn-light btn-lg mt-3">Join Today</button>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
   <footer>
-    <p>&copy; 2024 SkillHub LMS. All rights reserved.</p>
+    <p class="mb-0">&copy; 2026 SkillHub LMS. All rights reserved.</p>
   </footer>
-</body>
 
+  <!-- Bootstrap 5.3 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>
