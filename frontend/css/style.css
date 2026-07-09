@@ -2,7 +2,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #1a1b26;
   color: #cdd3e8;
+<<<<<<< HEAD
   transition: background-color 0.3s ease, color 0.3s ease;
+=======
+>>>>>>> c819118bc4cd21d41cdbdc0c6351cb75da8e7040
 }
 
 /* ---- Navbar ---- */
@@ -53,7 +56,11 @@ body {
   color: #cdd3e8;
 }
 .course-card:hover {
+<<<<<<< HEAD
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+=======
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+>>>>>>> c819118bc4cd21d41cdbdc0c6351cb75da8e7040
   transform: translateY(-4px);
   border-color: #7dc4e4;
 }
@@ -127,6 +134,7 @@ body {
   text-align: center;
   padding: 50px 0;
   border-top: 1px solid #2b2d3d;
+<<<<<<< HEAD
 }
 .cta .btn-light {
   background-color: #8bd5a4;
@@ -227,3 +235,46 @@ footer {
 .btn-outline-light {
   border-color: #2b2d3d;
 }
+=======
+}
+.cta .btn-light {
+  background-color: #8bd5a4;
+  border-color: #8bd5a4;
+  color: #16171f;
+}
+
+/* ---- Footer ---- */
+footer {
+  background-color: #12131a;
+  color: #8b8fa8;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* ---- Overrides so Bootstrap's default classes still read well on dark ---- */
+.text-muted {
+  color: #8b8fa8 !important;
+}
+.text-primary {
+  color: #7dc4e4 !important;
+}
+.btn-outline-primary {
+  color: #7dc4e4;
+  border-color: #7dc4e4;
+}
+.btn-outline-primary:hover {
+  background-color: #7dc4e4;
+  color: #16171f;
+}
+.btn-outline-dark {
+  color: #cdd3e8;
+  border-color: #2b2d3d;
+}
+.btn-outline-dark:hover {
+  background-color: #cdd3e8;
+  color: #16171f;
+}
+.btn-outline-light {
+  border-color: #2b2d3d;
+}
+>>>>>>> c819118bc4cd21d41cdbdc0c6351cb75da8e7040
