@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Aman",
+    "course": "Java",
+    "email": "aman@mail.com",
+    "phone": "9876543210",
+    "duration": "6 months"
+  },
+  {
+    "name": "ludgw",
+    "course": "CZXB8",
+    "email": "aman@mail.com",
+    "phone": "9876543210",
+    "duration": "6 months"
+  },
+  {
+    "name": "TestUser",
+    "course": "Node.js",
+    "email": "test@test.com",
+    "phone": "1234567890",
+    "duration": "4 months"
+  }
+]

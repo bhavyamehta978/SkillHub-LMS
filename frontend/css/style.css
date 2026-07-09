@@ -1,217 +1,229 @@
 body {
-  background-color: #afb0b5;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1a1b26;
+  color: #cdd3e8;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-h1 {
-  color: rgb(0, 0, 0);
+/* ---- Navbar ---- */
+.navbar-brand {
+  font-weight: bold;
+  color: #8bd5a4 !important;
 }
 
-
-header {
-  background: rgb(37, 99, 235);
-  color: white;
-  text-align: center;
-  border-radius: 10px;
-  padding : 20px;
-}
-/* ─ Navigation ─ */
-nav {
-  background: #d5d5d5;
-  padding: 15px;
-  text-align: center;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 15px;
-}
-
-nav a:hover {
-  color: #000000;
-}
-
-/* ─ Hero Section ─ */
+/* ---- Hero section ---- */
 .hero {
-  text-align: center;
-  padding: 60px;
+  background-color: #16171f;
+  color: #cdd3e8;
+  padding: 60px 0;
+  border-bottom: 1px solid #2b2d3d;
 }
-.hero h2 {
-  color: #2563eb;
+.hero h1 {
+  font-weight: bold;
+  color: #f2f3f9;
+}
+.hero .lead {
+  color: #8b8fa8;
+}
+.hero-emoji {
+  font-size: 120px;
+  text-align: center;
+}
+
+/* ---- Section titles ---- */
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: #f2f3f9;
+}
+
+/* ---- Course cards ---- */
+.course-card {
+  background-color: #16171f;
+  border: 1px solid #2b2d3d;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  height: 100%;
+  transition: 0.2s;
+}
+.course-card h3,
+.course-card p {
+  color: #cdd3e8;
+}
+.course-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transform: translateY(-4px);
+  border-color: #7dc4e4;
+}
+.course-icon {
   font-size: 40px;
-}
-/* ── Normal CSS (desktop) ── */
-.hero h2
-{font-size:42px; }
-/* ── Mobile override ── */
-@media(max-width:768px)
-{
-.hero h2
-{font-size:28px; }
-}
-.hero p {
-  margin-top: 20px;
-  font-size: 18px;
-}
-.hero-image
-{width:100%;
- height:auto;
- display:block;
+  margin-bottom: 10px;
 }
 
-
-/* ─ CTA Button ─ */
-.btn {
-  background: #ffffff;
-  color: rgb(0, 79, 214);
-  border: none;
-  padding: 12px 25px;
-  margin-top: 20px;
-  cursor: pointer;
-  width:auto;
-  border-radius: 20px;
+/* ---- Testimonial cards ---- */
+.testimonial-card {
+  background-color: #16171f;
+  border: 1px solid #2b2d3d;
+  border-radius: 8px;
+  padding: 20px;
+  height: 100%;
 }
-.btn:hover {
-  background: #e9f0ff;
+.testimonial-card h5 {
+  color: #f2f3f9;
 }
-
-/* ─ About ─ */
-.about {
-  background: rgb(56, 95, 95);
-  margin: 30px;
-  padding: 30px;
-}
-
-/* ─ Course Container ─ */
-.course-container {
+.avatar-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: #16171f;
   display: flex;
-  gap: 20px;
+  align-items: center;
   justify-content: center;
-}
-.course-container :hover {
-  transform: scale (1.1);
-  transition: 0.3s ease;
-  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 auto 10px auto;
 }
 
-/* ─ Card ─ */
-.course-container{
-  display:flex;
-  justify-content:center;
-  gap  :25px;
-  flex-wrap:wrap;
-}
-.card{
-  width:260px;
-  padding :20px;
-  background:white;
-  border-radius:10px;
-  box-shadow:0 0 10px rgba(0,0,0,.2);
-  transition:.3s;
-}
-.card:hover{
-   transform:translateY(-10px);
-}
-/* ─ Footer ─ */
-footer {
-  background: #1d3762;
-  color: white;
+/* ---- Why choose us ---- */
+.feature-box {
   text-align: center;
   padding: 20px;
-  margin-top: 40px;
+}
+.feature-box h5 {
+  color: #f2f3f9;
+}
+.feature-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
 }
 
-/* ── Box Model Demo ── */
-.box-model-demo {
-  padding: 40px;
+/* ---- Trainer cards ---- */
+.card {
+  background-color: #16171f !important;
+  border: 1px solid #2b2d3d !important;
 }
-.demo-box {
-  background: rgb(37, 99, 235);
-  color: white;
-  width: 300px;
-  padding: 30px;
-  border: 5px solid rgb(33, 80, 172);
-  margin: 40px;
-  border-radius: 10px;
+.card-title {
+  color: #f2f3f9;
 }
-
-.student-card {
-  background: #ffffff;
-  border: 2px solid #888686;
-  border-radius: 16px;
-  padding: 20px;
-  margin: 16px;
-  width: 200px;
-  text-align: center;
-}
-
-.testimonials{
+.trainer-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  color: #16171f;
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.testimonials:hover {
-  color: #000000;
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0 auto 12px auto;
 }
 
-.features {
-padding: 60px;
-text-align: center;
-background: #eef4ff;
-}
-.feature-container {
-display: flex;
-justify-content: center;
-gap: 30px;
-flex-wrap: wrap;
-border-radius: 16px;
-padding: 30px;
-}
-.feature {
-width: 300px;
-padding: 25px;
-background: white;
-border-radius: 10px;
-box-shadow: 0 0 15px rgba(0,0,0,.15);
-transition: .3s;
-}
-/* Hover — zoom effect */
-.feature:hover {
-transform: scale(1.05);
-}
+/* ---- CTA section ---- */
 .cta {
-background: #215cd1;
-color: white;
-padding: 60px;
-text-align: center;
-}
-.cta button {
-margin-top: 20px;
-}
-/* ═══════════════════════════════════ */
-/* ── MOBILE STYLES (Day 5 Hour 2) ── */
-/* ═══════════════════════════════════ */
-@media(max-width:768px) {
-nav { flex-direction: column; }
-.hero { padding: 30px; }
-.hero h2{ font-size: 26px; }
-.hero p { font-size: 16px; }
-.btn { width: 100%; }
-.course-card{ width: 100%; }
-.feature{ width: 100%; }
-.about { margin: 15px; padding: 20px; }
-footer { font-size: 14px; }
-.profile-card {
-  flex-direction: column;
+  background-color: #16171f;
+  color: #f2f3f9;
   text-align: center;
-  width: 100%;
-  }
+  padding: 50px 0;
+  border-top: 1px solid #2b2d3d;
 }
-.profile-card {
-display: flex;
-flex-direction: row;
-align-items: center;
-gap: 16px;
+.cta .btn-light {
+  background-color: #8bd5a4;
+  border-color: #8bd5a4;
+  color: #16171f;
+}
+
+/* ---- Register section ---- */
+#register {
+  background-color: #1a1b26;
+}
+#register .form-label {
+  color: #cdd3e8;
+}
+#register .form-control,
+#register .form-select {
+  background-color: #16171f;
+  border: 1px solid #2b2d3d;
+  color: #cdd3e8;
+}
+#register .form-control:focus,
+#register .form-select:focus {
+  background-color: #16171f;
+  color: #cdd3e8;
+  border-color: #7dc4e4;
+  box-shadow: 0 0 0 0.25rem rgba(125,196,228,0.25);
+}
+#register .form-control.is-invalid,
+#register .form-select.is-invalid {
+  border-color: #f28fad;
+}
+.field-error {
+  color: #f28fad;
+  font-size: 0.85rem;
+  min-height: 1.1rem;
+  margin-top: 4px;
+}
+#experienceTip {
+  color: #8bd5a4;
+  min-height: 1.1rem;
+  font-size: 0.9rem;
+}
+
+/* ---- Toast notification ---- */
+#toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  max-width: 320px;
+  background-color: #16171f;
+  color: #cdd3e8;
+  border: 1px solid #2b2d3d;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1080;
+}
+#toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Footer ---- */
+footer {
+  background-color: #12131a;
+  color: #8b8fa8;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* ---- Overrides so Bootstrap's default classes still read well on dark ---- */
+.text-muted {
+  color: #8b8fa8 !important;
+}
+.text-primary {
+  color: #7dc4e4 !important;
+}
+.btn-outline-primary {
+  color: #7dc4e4;
+  border-color: #7dc4e4;
+}
+.btn-outline-primary:hover {
+  background-color: #7dc4e4;
+  color: #16171f;
+}
+.btn-outline-dark {
+  color: #cdd3e8;
+  border-color: #2b2d3d;
+}
+.btn-outline-dark:hover {
+  background-color: #cdd3e8;
+  color: #16171f;
+}
+.btn-outline-light {
+  border-color: #2b2d3d;
 }

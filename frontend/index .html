@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillHub LMS</title>
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- My own simple styles -->
+  <style>
+   
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #1a1b26;
+      color: #cdd3e8;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* ---- Navbar ---- */
+    .navbar-brand {
+      font-weight: bold;
+      color: #8bd5a4 !important;
+    }
+
+    /* ---- Hero section ---- */
+    .hero {
+      background-color: #16171f;
+      color: #cdd3e8;
+      padding: 60px 0;
+      border-bottom: 1px solid #2b2d3d;
+    }
+    .hero h1 {
+      font-weight: bold;
+      color: #f2f3f9;
+    }
+    .hero .lead {
+      color: #8b8fa8;
+    }
+    .hero-emoji {
+      font-size: 120px;
+      text-align: center;
+    }
+
+    /* ---- Section titles ---- */
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: bold;
+      color: #f2f3f9;
+    }
+
+    /* ---- Course cards ---- */
+    .course-card {
+      background-color: #16171f;
+      border: 1px solid #2b2d3d;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      height: 100%;
+      transition: 0.2s;
+    }
+    .course-card h3,
+    .course-card p {
+      color: #cdd3e8;
+    }
+    .course-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transform: translateY(-4px);
+      border-color: #7dc4e4;
+    }
+    .course-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    /* ---- Testimonial cards ---- */
+    .testimonial-card {
+      background-color: #16171f;
+      border: 1px solid #2b2d3d;
+      border-radius: 8px;
+      padding: 20px;
+      height: 100%;
+    }
+    .testimonial-card h5 {
+      color: #f2f3f9;
+    }
+    .avatar-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      color: #16171f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 20px;
+      margin: 0 auto 10px auto;
+    }
+
+    /* ---- Why choose us ---- */
+    .feature-box {
+      text-align: center;
+      padding: 20px;
+    }
+    .feature-box h5 {
+      color: #f2f3f9;
+    }
+    .feature-icon {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    /* ---- Trainer cards ---- */
+    .card {
+      background-color: #16171f !important;
+      border: 1px solid #2b2d3d !important;
+    }
+    .card-title {
+      color: #f2f3f9;
+    }
+    .trainer-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      color: #16171f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 24px;
+      margin: 0 auto 12px auto;
+    }
+
+    /* ---- CTA section ---- */
+    .cta {
+      background-color: #16171f;
+      color: #f2f3f9;
+      text-align: center;
+      padding: 50px 0;
+      border-top: 1px solid #2b2d3d;
+    }
+    .cta .btn-light {
+      background-color: #8bd5a4;
+      border-color: #8bd5a4;
+      color: #16171f;
+    }
+
+    /* ---- Register section ---- */
+    #register {
+      background-color: #1a1b26;
+    }
+    #register .form-label {
+      color: #cdd3e8;
+    }
+    #register .form-control,
+    #register .form-select {
+      background-color: #16171f;
+      border: 1px solid #2b2d3d;
+      color: #cdd3e8;
+    }
+    #register .form-control:focus,
+    #register .form-select:focus {
+      background-color: #16171f;
+      color: #cdd3e8;
+      border-color: #7dc4e4;
+      box-shadow: 0 0 0 0.25rem rgba(125,196,228,0.25);
+    }
+    #register .form-control.is-invalid,
+    #register .form-select.is-invalid {
+      border-color: #f28fad;
+    }
+    .field-error {
+      color: #f28fad;
+      font-size: 0.85rem;
+      min-height: 1.1rem;
+      margin-top: 4px;
+    }
+    #experienceTip {
+      color: #8bd5a4;
+      min-height: 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    /* ---- Footer ---- */
+    footer {
+      background-color: #12131a;
+      color: #8b8fa8;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    /* ---- Overrides so Bootstrap's default classes still read well on dark ---- */
+    .text-muted {
+      color: #8b8fa8 !important;
+    }
+    .text-primary {
+      color: #7dc4e4 !important;
+    }
+    .btn-outline-primary {
+      color: #7dc4e4;
+      border-color: #7dc4e4;
+    }
+    .btn-outline-primary:hover {
+      background-color: #7dc4e4;
+      color: #16171f;
+    }
+    .btn-outline-dark {
+      color: #cdd3e8;
+      border-color: #2b2d3d;
+    }
+    .btn-outline-dark:hover {
+      background-color: #cdd3e8;
+      color: #16171f;
+    }
+    .btn-outline-light {
+      border-color: #2b2d3d;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">SkillHub LMS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="#trainers">Trainers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link" href="#register">Register</a></li>
+          <li class="nav-item ms-lg-2">
+            <button id="themeToggleBtn" class="btn btn-sm btn-outline-light">🌙 Dark</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Hero section ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h1 class="display-5" id="heroTitle">Master Full Stack Development</h1>
+          <p class="lead mt-3" id="heroLead">Learn HTML, CSS, JavaScript, React, Node &amp; MongoDB</p>
+          <div class="d-flex gap-3 mt-4">
+            <button class="btn btn-light btn-lg" id="getStartedBtn">Get Started</button>
+            <button class="btn btn-outline-light btn-lg" id="learnMoreBtn">Learn More</button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80"
+               class="img-fluid rounded shadow" alt="Laptop screen showing programming code">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Courses section ===== -->
+  <section class="py-5" id="courses">
+    <div class="container">
+      <h2 class="section-title">Our Courses</h2>
+      <p class="text-center" id="enrollCounter">Total Enrollments: 0</p>
+      <div class="row g-4">
+
+        <div class="col-md-4 col-sm-6">
+          <div class="course-card">
+            <div class="course-icon">🌐</div>
+            <h3>HTML &amp; CSS</h3>
+            <p>Build your first webpage</p>
+            <button class="btn btn-sm btn-outline-primary enroll-btn">Enroll</button>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="course-card">
+            <div class="course-icon">⚡</div>
+            <h3>JavaScript</h3>
+            <p>Make pages interactive</p>
+            <button class="btn btn-sm btn-outline-primary enroll-btn">Enroll</button>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="course-card">
+            <div class="course-icon">🎨</div>
+            <h3>Bootstrap</h3>
+            <p>CSS Framework</p>
+            <button class="btn btn-sm btn-outline-primary enroll-btn">Enroll</button>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="course-card">
+            <div class="course-icon">🍃</div>
+            <h3>MongoDB</h3>
+            <p>Database</p>
+            <button class="btn btn-sm btn-outline-primary enroll-btn">Enroll</button>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="course-card">
+            <div class="course-icon">🟢</div>
+            <h3>Node.js</h3>
+            <p>Runtime</p>
+            <button class="btn btn-sm btn-outline-primary enroll-btn">Enroll</button>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="course-card">
+            <div class="course-icon">⚛️</div>
+            <h3>React</h3>
+            <p>Build modern UIs</p>
+            <button class="btn btn-sm btn-outline-primary enroll-btn">Enroll</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Testimonials section ===== -->
+  <section class="py-5" style="background-color:#16171f;" id="reviews">
+    <div class="container">
+      <h2 class="section-title">Testimonials</h2>
+      <div class="row g-4">
+
+        <div class="col-md-3 col-sm-6">
+          <div class="testimonial-card">
+            <div class="avatar-circle" style="background-color:#8bd5a4;">RS</div>
+            <h5 class="text-center">Rahul Sharma</h5>
+            <p class="text-center text-muted mb-1">MERN Stack Student</p>
+            <p class="text-center text-muted">Batch: 2026</p>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="testimonial-card">
+            <div class="avatar-circle" style="background-color:#7dc4e4;">PV</div>
+            <h5 class="text-center">Priya Verma</h5>
+            <p class="text-center text-muted mb-1">React Student</p>
+            <p class="text-center text-muted">Batch: 2026</p>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="testimonial-card">
+            <div class="avatar-circle" style="background-color:#f5c98d;">AK</div>
+            <h5 class="text-center">Aman Kulkarni</h5>
+            <p class="text-center text-muted mb-1">Node.js Student</p>
+            <p class="text-center text-muted">Batch: 2025</p>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="testimonial-card">
+            <div class="avatar-circle" style="background-color:#f28fad;">SN</div>
+            <h5 class="text-center">Sneha Nair</h5>
+            <p class="text-center text-muted mb-1">Full Stack Student</p>
+            <p class="text-center text-muted">Batch: 2025</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Why choose us section ===== -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="section-title">Why Choose SkillHub?</h2>
+      <div class="row align-items-center g-4">
+        <div class="col-md-5">
+          <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=700&q=80"
+               class="img-fluid rounded shadow" alt="MacBook Pro with code on screen">
+        </div>
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="feature-box">
+                <div class="feature-icon">💻</div>
+                <h5>Practical Learning</h5>
+                <p>Build projects every day.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-box">
+                <div class="feature-icon">👨‍🏫</div>
+                <h5>Expert Trainers</h5>
+                <p>Industry-oriented teaching.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-box">
+                <div class="feature-icon">🚀</div>
+                <h5>Placement Support</h5>
+                <p>Resume &amp; interview prep.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Trainers section ===== -->
+  <section class="py-5" style="background-color:#16171f;" id="trainers">
+    <div class="container">
+      <h2 class="section-title">Meet Our Trainers</h2>
+      <div class="row g-4">
+
+        <div class="col-md-4">
+          <div class="card text-center shadow h-100 p-3">
+            <div class="trainer-avatar" style="background-color:#c6a0f6;">RK</div>
+            <div class="card-body">
+              <h5 class="card-title">Rahul Kumar</h5>
+              <p class="text-primary fw-bold">MERN Stack Lead</p>
+              <p class="card-text text-muted">5 years industry experience</p>
+              <div class="d-flex gap-2 justify-content-center">
+                <a href="#" class="btn btn-outline-primary btn-sm">LinkedIn</a>
+                <a href="#" class="btn btn-outline-dark btn-sm">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card text-center shadow h-100 p-3">
+            <div class="trainer-avatar" style="background-color:#7dc4e4;">MI</div>
+            <div class="card-body">
+              <h5 class="card-title">Meera Iyer</h5>
+              <p class="text-primary fw-bold">Frontend &amp; React Lead</p>
+              <p class="card-text text-muted">6 years industry experience</p>
+              <div class="d-flex gap-2 justify-content-center">
+                <a href="#" class="btn btn-outline-primary btn-sm">LinkedIn</a>
+                <a href="#" class="btn btn-outline-dark btn-sm">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card text-center shadow h-100 p-3">
+            <div class="trainer-avatar" style="background-color:#8bd5a4;">AD</div>
+            <div class="card-body">
+              <h5 class="card-title">Arjun Desai</h5>
+              <p class="text-primary fw-bold">Backend &amp; DevOps Lead</p>
+              <p class="card-text text-muted">7 years industry experience</p>
+              <div class="d-flex gap-2 justify-content-center">
+                <a href="#" class="btn btn-outline-primary btn-sm">LinkedIn</a>
+                <a href="#" class="btn btn-outline-dark btn-sm">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Register section ===== -->
+  <section class="py-5" id="register">
+    <div class="container">
+      <h2 class="section-title">Register Now</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form id="registerForm" novalidate>
+
+            <div class="mb-3">
+              <label for="nameInput" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="nameInput" placeholder="Enter your name">
+              <div class="field-error" id="nameError"></div>
+            </div>
+
+            <div class="mb-3">
+              <label for="emailInput" class="form-label">Email</label>
+              <input type="email" class="form-control" id="emailInput" placeholder="you@example.com">
+              <div class="field-error" id="emailError"></div>
+            </div>
+
+            <div class="mb-3">
+              <label for="passwordInput" class="form-label">Password</label>
+              <input type="password" class="form-control" id="passwordInput" placeholder="At least 6 characters">
+              <div class="field-error" id="passwordError"></div>
+            </div>
+
+            <div class="mb-3">
+              <label for="courseSelect" class="form-label">Choose a Course</label>
+              <select class="form-select" id="courseSelect">
+                <option value="">-- Select a course --</option>
+              </select>
+              <div class="field-error" id="courseErrorMsg"></div>
+            </div>
+
+            <div class="mb-3">
+              <label for="experienceSelect" class="form-label">Your Experience Level</label>
+              <select class="form-select" id="experienceSelect">
+                <option value="">-- Select level --</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+              <div id="experienceTip"></div>
+            </div>
+
+            <button type="submit" class="btn btn-outline-primary w-100">Register</button>
+
+            <div class="alert alert-success mt-3 d-none" id="registerSuccess"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Call to action section ===== -->
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to Become a Full Stack Developer?</h2>
+      <button class="btn btn-light btn-lg mt-3" id="joinNowBtn">Join Today</button>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p class="mb-0">&copy; <span id="year"></span> SkillHub LMS. All rights reserved.</p>
+  </footer>
+
+  <!-- Bootstrap 5.3 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ===== SkillHub project JavaScript ===== -->
+  <script>
+
+    /* ============================================================
+       1) VARIABLES & DATA TYPES  (Day 6 · Hour 1)
+    ============================================================ */
+    let studentName = "";               // string
+    let totalEnrollments = 0;           // number
+    let isDarkMode = true;              // boolean
+    const basicCourses = ["HTML & CSS", "JavaScript"];
+    const advancedCourses = ["React", "Node.js", "MongoDB"];
+
+    /* ============================================================
+       2) ES6 FEATURES  (Day 10) — used throughout this file
+    ============================================================ */
+
+    // Spread operator: merge two course arrays into one master list
+    const allCourses = [...basicCourses, ...advancedCourses, "Bootstrap"];
+
+    // Rest operator: accept any number of counts and total them up
+    const sumEnrollments = (...counts) => counts.reduce((total, n) => total + n, 0);
+    // e.g. sumEnrollments(2, 5, 3) -> 10
+
+    // Arrow function: build a personalised welcome message
+    const showWelcome = (name) => `Welcome to SkillHub, ${name}! 🎉`;
+
+    /* ============================================================
+       3) FUNCTIONS  (Day 7 · Hour 1)
+    ============================================================ */
+    function updateHeroGreeting(name) {
+      const heroTitle = document.getElementById("heroTitle");
+      heroTitle.textContent = showWelcome(name);
+    }
+
+    /* ============================================================
+       4) alert() / prompt() / DOM MANIPULATION  (Day 6 · Hour 2)
+    ============================================================ */
+
+    // "Get Started" -> ask the student's name, greet them, update the DOM
+    const getStartedBtn = document.getElementById("getStartedBtn");
+    getStartedBtn.addEventListener("click", () => {
+      const name = prompt("Hey! What's your name?");
+      if (name) {
+        studentName = name;
+        updateHeroGreeting(name);
+        alert(`Nice to meet you, ${name}! Scroll down to explore our courses.`);
+      }
+    });
+
+    // "Learn More" -> change text with innerHTML, change button style with .style
+    const learnMoreBtn = document.getElementById("learnMoreBtn");
+    learnMoreBtn.addEventListener("click", () => {
+      const heroLead = document.getElementById("heroLead");
+      heroLead.innerHTML = "Every course comes with <strong>real projects</strong>, mentor support, and placement help.";
+      learnMoreBtn.style.backgroundColor = "#7dc4e4";
+      learnMoreBtn.style.color = "#16171f";
+      learnMoreBtn.textContent = "Glad you're curious!";
+    });
+
+    /* ============================================================
+       5) EVENTS  (Day 7 · Hour 3)
+    ============================================================ */
+
+    // Theme changer
+    const themeToggleBtn = document.getElementById("themeToggleBtn");
+    themeToggleBtn.addEventListener("click", () => {
+      isDarkMode = !isDarkMode;
+      document.body.style.backgroundColor = isDarkMode ? "#1a1b26" : "#f4f5f7";
+      document.body.style.color = isDarkMode ? "#cdd3e8" : "#1a1a1a";
+      themeToggleBtn.textContent = isDarkMode ? "🌙 Dark" : "☀️ Light";
+    });
+
+    // Join Now -> alert with today's date, via new Date()
+    const joinNowBtn = document.getElementById("joinNowBtn");
+    joinNowBtn.addEventListener("click", () => {
+      const today = new Date();
+      alert(`Thanks for your interest! Today is ${today.toDateString()}. Our team will reach out shortly.`);
+    });
+
+    // Course counter -- every "Enroll" button increments a shared counter
+    const enrollButtons = document.querySelectorAll(".enroll-btn");
+    const counterBadge = document.getElementById("enrollCounter");
+
+    enrollButtons.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        totalEnrollments++;
+        counterBadge.textContent = `Total Enrollments: ${totalEnrollments}`;
+        event.target.textContent = "Enrolled ✓";
+        event.target.disabled = true;
+      });
+    });
+
+    // Footer year — always current, no need to update it by hand
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Populate the registration course dropdown from the ES6 spread array
+    const courseSelectEl = document.getElementById("courseSelect");
+    allCourses.forEach((course) => {
+      const option = document.createElement("option");
+      option.value = course;
+      option.textContent = course;
+      courseSelectEl.appendChild(option);
+    });
+
+    /* ============================================================
+       6) CONDITIONAL STATEMENTS  (Day 8 · Hour 2)
+    ============================================================ */
+    const experienceSelect = document.getElementById("experienceSelect");
+    const experienceTip = document.getElementById("experienceTip");
+
+    experienceSelect.addEventListener("change", () => {
+      const level = experienceSelect.value;
+
+      if (level === "beginner") {
+        experienceTip.textContent = "💡 Tip: Start with HTML & CSS before jumping into JavaScript.";
+      } else if (level === "intermediate") {
+        experienceTip.textContent = "💡 Tip: You're ready for our JavaScript + React track.";
+      } else if (level === "advanced") {
+        experienceTip.textContent = "💡 Tip: Jump straight into our MERN Full Stack course.";
+      } else {
+        experienceTip.textContent = "";
+      }
+    });
+
+    /* ============================================================
+       7) FORM VALIDATION  (Day 8 · Hour 3)
+    ============================================================ */
+    const registerForm = document.getElementById("registerForm");
+
+    function validateName(value) {
+      if (value.trim() === "") return "Name is required.";
+      if (value.trim().length < 3) return "Name must be at least 3 characters.";
+      return "";
+    }
+
+    function validateEmail(value) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (value.trim() === "") return "Email is required.";
+      if (!emailPattern.test(value)) return "Enter a valid email address.";
+      return "";
+    }
+
+    function validatePassword(value) {
+      if (value === "") return "Password is required.";
+      if (value.length < 6) return "Password must be at least 6 characters.";
+      return "";
+    }
+
+    function validateCourse(value) {
+      if (value === "") return "Please select a course.";
+      return "";
+    }
+
+    function showFieldError(inputId, errorId, message) {
+      const input = document.getElementById(inputId);
+      const errorBox = document.getElementById(errorId);
+      errorBox.textContent = message;
+      input.classList.toggle("is-invalid", message !== "");
+    }
+
+    registerForm.addEventListener("submit", (event) => {
+      event.preventDefault(); // stop the page from refreshing
+
+      const nameInput = document.getElementById("nameInput");
+      const emailInput = document.getElementById("emailInput");
+      const passwordInput = document.getElementById("passwordInput");
+      const courseSelect = document.getElementById("courseSelect");
+
+      // Destructuring: pull all four values out of one object at once
+      const { name, email, password, course } = {
+        name: nameInput.value,
+        email: emailInput.value,
+        password: passwordInput.value,
+        course: courseSelect.value,
+      };
+
+      const nameError = validateName(name);
+      const emailError = validateEmail(email);
+      const passwordError = validatePassword(password);
+      const courseError = validateCourse(course);
+
+      showFieldError("nameInput", "nameError", nameError);
+      showFieldError("emailInput", "emailError", emailError);
+      showFieldError("passwordInput", "passwordError", passwordError);
+      showFieldError("courseSelect", "courseErrorMsg", courseError);
+
+      const allValid = [nameError, emailError, passwordError, courseError].every(
+        (msg) => msg === ""
+      );
+
+      if (allValid) {
+        const successBox = document.getElementById("registerSuccess");
+        successBox.textContent = `🎉 ${showWelcome(name)} You're registered for ${course}.`;
+        successBox.classList.remove("d-none");
+        registerForm.reset();
+        document.querySelectorAll("#registerForm .is-invalid").forEach((el) => {
+          el.classList.remove("is-invalid");
+        });
+      }
+    });
+
+  </script>
+
+</body>
+</html>
